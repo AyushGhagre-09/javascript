@@ -1,10 +1,13 @@
 node {
-    stage('Cleanup') {
-        stage ('Clean Workspace') { 
-    cleanWs notPaths: 'src/Maestro/node_modules/**' 
+   stage('Cleanup') {
+    cleanWs(
+        deleteDirs: true,
+        patterns: [
+            [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE']
+        ]
+    )
 }
 
-    }
     
   stage('Checkout and Install') {
     dir('src/Maestro') {
