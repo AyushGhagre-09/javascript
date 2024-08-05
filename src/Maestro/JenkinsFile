@@ -1,9 +1,11 @@
 node{
-    stage("checkout"){
+    dir('src\\Maestro'){
+        stage("checkout"){
         checkout scm
     }
     stage("yarn")
     {
         bat 'yarn'
+    }
     }
 }
