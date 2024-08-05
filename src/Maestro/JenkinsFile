@@ -3,16 +3,16 @@ node {
     cleanWs(
         deleteDirs: true,
         patterns: [
-            [pattern: './src/Maestro/node_modules/**', type: 'EXCLUDE']
+            [pattern: '**/node_modules/**', type: 'EXCLUDE']
         ]
     )
 }
 
     
- // stage('Checkout and Install') {
-  //  dir('src/Maestro') {
-     //       checkout scm
-      //    bat 'yarn'
-       //}
-    //}
+ stage('Checkout and Install') {
+    dir('src/Maestro') {
+            checkout scm
+         bat 'yarn'
+       }
+    }
 }
