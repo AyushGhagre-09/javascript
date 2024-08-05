@@ -8,10 +8,10 @@ node {
         )
     }
     
-    stage('Checkout and Install') {
-        dir('src/Maestro') {
-            checkout scm
+   // stage('Checkout and Install') {
+     //   dir('src/Maestro') {
+      //      checkout scm
             bat 'yarn'
-        }
-    }
+      //  }
+  //  }
 }
