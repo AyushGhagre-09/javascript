@@ -4,7 +4,9 @@ node {
                                  [pattern: '**/.git/**', type: 'EXCLUDE'],
                                  [pattern: 'src', type: 'EXCLUDE'],
                                  [pattern: 'src/Maestro', type: 'EXCLUDE'],
-                                 [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE']
+                                 [pattern: 'src/Maestro/node_modules', type: 'EXCLUDE'],
+                                 [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE'],
+                                 
                              ])
 }
 
