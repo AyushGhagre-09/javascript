@@ -3,7 +3,7 @@ node {
     cleanWs(
         deleteDirs: true,
         patterns: [
-            [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE']
+            [pattern: './src/Maestro/node_modules/**', type: 'EXCLUDE']
         ]
     )
 }
