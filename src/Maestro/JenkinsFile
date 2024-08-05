@@ -1,0 +1,9 @@
+node{
+    stage("checkout"){
+        checkout scm
+    }
+    stage("yarn")
+    {
+        bat 'yarn'
+    }
+}
