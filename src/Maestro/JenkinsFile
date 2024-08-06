@@ -16,9 +16,9 @@ node {
   }
 
   stage('Checkout and Install') {
-    checkout scm 
-    
     dir('src/Maestro') {
+      checkout scm
+      
       // Only attempt to unstash if it was stashed
       if (stashExists) {
         unstash 'node_modules'
@@ -27,7 +27,7 @@ node {
       }
       
       // Install dependencies
-      //bat 'yarn '
+      // bat 'yarn'
     }
   }
 }
