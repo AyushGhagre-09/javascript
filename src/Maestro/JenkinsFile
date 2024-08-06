@@ -11,14 +11,15 @@ node {
   }
 
   stage('Checkout and Install') {
+    sleep 30
     checkout scm 
-    if (fileExists('src/Maestro/node_modules')) {
+    if (!fileExists('src/Maestro/node_modules')) {
       unstash 'node_modules'
     }
 
-    // Uncomment the following lines if you want to run yarn in the 'src/Maestro' directory
-    // dir('src/Maestro') {
-    //   bat 'yarn'
+   
+    //dir('src/Maestro') {
+    //  bat 'yarn'
     // }
-  }
+ // }
 }
