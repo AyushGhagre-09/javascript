@@ -18,7 +18,7 @@ node {
   stage('Checkout and Install') {
 // Checkout the code into 'src/Maestro'
       checkout scm
-    dir('src/Maestro') {
+   
       
       
       // Only attempt to unstash if it was stashed
@@ -29,8 +29,6 @@ node {
       }
       
       // Install dependencies
-      //bat 'yarn'
+      bat 'yarn'
     }
-    
   }
-}
