@@ -27,7 +27,7 @@ node {
       }
       
       // Install dependencies
-      bat 'yarn install'
+     // bat 'yarn '
     }
   }
 }
