@@ -16,8 +16,10 @@ node {
     sleep 30
      dir("src/Maestro"){
       bat 'if not exist "node_modules" mkdir "node_modules"' 
+}
+  if (!fileExists('src/Maestro/node_modules')) {
       unstash 'node_modules'
-     }
+}
       
      
      
