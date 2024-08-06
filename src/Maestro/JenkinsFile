@@ -29,7 +29,7 @@ node {
       }
       
      dir('src/Maestro'){
-      bat 'yarn'
+     // bat 'yarn'
      }
       
     }
