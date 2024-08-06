@@ -28,9 +28,9 @@ node {
         echo "No node_modules to unstash. Proceeding with installation."
       }
       
-     dir('src/Maestro'){
+    // dir('src/Maestro'){
     //  bat 'yarn'
-     }
+    // }
       
     }
   }
