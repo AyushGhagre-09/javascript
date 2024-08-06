@@ -28,7 +28,7 @@ node {
         echo "No node_modules to unstash. Proceeding with installation."
       }
       
-      // Install dependencies
+      dir(''){
       bat 'yarn'
     }
   }
