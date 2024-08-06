@@ -5,18 +5,18 @@ node {
       [pattern: 'src/Maestro/', type: 'EXCLUDE'],
       [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE']
     ])
-    if (fileExists('src/Maestro/node_modules')) {
-      stash includes: 'src/Maestro/node_modules/**', name: 'node_modules'
-    }
+    // if (fileExists('src/Maestro/node_modules')) {
+    //   stash includes: 'src/Maestro/node_modules/**', name: 'node_modules'
+    // }
   }
 
   stage('Checkout and Install') {
     
     checkout scm 
     sleep 30
-      if (!fileExists('src/Maestro/node_modules')) {
-      unstash 'node_modules'
-    }
+    //   if (!fileExists('src/Maestro/node_modules')) {
+    //   unstash 'node_modules'
+    // }
 
    
     dir('src/Maestro') {
