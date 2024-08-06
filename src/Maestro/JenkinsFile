@@ -15,7 +15,7 @@ node {
     checkout scm 
     sleep 30
       if (!fileExists('src/Maestro/node_modules')) {
-      bat 'mkdir  src/Maestro/node_modules'
+      bat 'mkdir -p src/Maestro/node_modules'
       unstash 'node_modules'
     }
 
