@@ -15,10 +15,10 @@ node {
 stage('Checkout and Install') {
     checkout scm 
      
- dir('src/Maestro') {
+// dir('src/Maestro') {
       
-      bat 'yarn'
-      }
+     // bat 'yarn'
+ //     }
 
   }
 }
