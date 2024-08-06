@@ -13,7 +13,7 @@ node {
   stage('Checkout and Install') {
     
     checkout scm 
-    sleep 30
+    //sleep 30
      dir("src/Maestro"){
       //bat 'if not exist "node_modules" mkdir "node_modules"' 
 }
