@@ -16,9 +16,10 @@ node {
   }
 
   stage('Checkout and Install') {
-    dir('src/Maestro') {
-      // Checkout the code into 'src/Maestro'
+// Checkout the code into 'src/Maestro'
       checkout scm
+    dir('src/Maestro') {
+      
       
       // Only attempt to unstash if it was stashed
       if (stashExists) {
