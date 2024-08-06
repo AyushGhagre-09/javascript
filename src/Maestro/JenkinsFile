@@ -11,8 +11,9 @@ node {
   }
 
   stage('Checkout and Install') {
-    sleep 30
+    
     checkout scm 
+    sleep 30
     if (!fileExists('src/Maestro/node_modules')) {
       unstash 'node_modules'
     }
