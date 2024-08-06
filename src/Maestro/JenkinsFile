@@ -1,24 +1,24 @@
 node {
   stage('Cleanup') {
-  cleanWs(deleteDirs: true, patterns: [
-                                 //[pattern: '**/.git/**', type: 'EXCLUDE'],
-                                 [pattern: 'src', type: 'EXCLUDE'],
-                                 [pattern: 'src/Maestro/', type: 'EXCLUDE'],
-                                 [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE']
-                                 
-                               
-                             ])
- sleep 30
-}
+    cleanWs(deleteDirs: true, patterns: [
+      [pattern: 'src', type: 'EXCLUDE'],
+      [pattern: 'src/Maestro/', type: 'EXCLUDE'],
+      [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE']
+    ])
+    if (fileExists('src/Maestro/node_modules')) {
+      stash includes: 'src/Maestro/node_modules/**', name: 'node_modules'
+    }
+  }
 
-    
-stage('Checkout and Install') {
+  stage('Checkout and Install') {
     checkout scm 
-     
-// dir('src/Maestro') {
-      
-     // bat 'yarn'
- //     }
+    if (fileExists('src/Maestro/node_modules')) {
+      unstash 'node_modules'
+    }
 
+    // Uncomment the following lines if you want to run yarn in the 'src/Maestro' directory
+    // dir('src/Maestro') {
+    //   bat 'yarn'
+    // }
   }
 }
