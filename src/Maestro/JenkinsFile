@@ -90,13 +90,12 @@ node(nodeLabel)
                      stage('Cleaning directory')
                      {
                          if (!isPR) {
-                             deleteDir()
-                             //cleanWs(deleteDirs: true, patterns: [
-                             //    [pattern: '**/.git/**', type: 'EXCLUDE'],
-                             //    [pattern: 'src', type: 'EXCLUDE'],
-                             //    [pattern: 'src/Maestro', type: 'EXCLUDE'],
-                             //    [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE']
-                             //])
+                             
+                             cleanWs(deleteDirs: true, patterns: [
+                                 [pattern: 'src', type: 'EXCLUDE'],
+                                 [pattern: 'src/Maestro', type: 'EXCLUDE'],
+                                 [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE']
+                             ])
                          }
                      }
 
