@@ -1,37 +1,13 @@
-node {
-  def stashExists = false
-  
-//   stage('Cleanup') {
-//     if (fileExists('src/Maestro/node_modules') || fileExists('src/Maestro/yarn.lock')) {
-//       if (fileExists('src/Maestro/node_modules')) {
-//         stash includes: 'src/Maestro/node_modules/**', name: 'node_modules'
-//       }
-//       if (fileExists('src/Maestro/yarn.lock')) {
-//         stash includes: 'src/Maestro/yarn.lock', name: 'yarn_lock'
-//       }
-//       stashExists = true
-//     }
-//   }
+node{
+stage("checkout "){
+checkout scm
 
-  stage('Checkout and Install') {
-     
-      checkout scm
-      //deleteDir()
-     
-       
-      
-      //Only attempt to unstash if it was stashed
-      if (stashExists) {
-        unstash 'node_modules'
-        unstash 'yarn_lock'
-      } else {
-        echo "No node_modules to unstash. Proceeding with installation."
-      }
+}
+stage("yarn "){
+dir("src/Maestro"){
+bat 'yarn'
 
-    // dir('src/Maestro'){
-    
-     // bat 'yarn'
- //   }
-      
-    }
-  }
+}
+}
+
+}
