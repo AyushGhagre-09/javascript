@@ -1,22 +1,22 @@
 node {
   def stashExists = false
   
-//   stage('Cleanup') {
-//     if (fileExists('src/Maestro/node_modules') || fileExists('src/Maestro/yarn.lock')) {
-//       if (fileExists('src/Maestro/node_modules')) {
-//         stash includes: 'src/Maestro/node_modules/**', name: 'node_modules'
-//       }
-//       if (fileExists('src/Maestro/yarn.lock')) {
-//         stash includes: 'src/Maestro/yarn.lock', name: 'yarn_lock'
-//       }
-//       stashExists = true
-//     }
-//   }
+ stage('Cleanup') {
+     if (fileExists('src/Maestro/node_modules') || fileExists('src/Maestro/yarn.lock')) {
+      if (fileExists('src/Maestro/node_modules')) {
+         stash includes: 'src/Maestro/node_modules/**', name: 'node_modules'
+       }
+       if (fileExists('src/Maestro/yarn.lock')) {
+         stash includes: 'src/Maestro/yarn.lock', name: 'yarn_lock'
+      }
+      stashExists = true
+    }
+  }
 
   stage('Checkout and Install') {
-     
+      deleteDir()
       checkout scm
-      //deleteDir()
+      
      
        
       
