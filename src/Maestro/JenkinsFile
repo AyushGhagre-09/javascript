@@ -15,7 +15,7 @@ node {
 
   stage('Checkout and Install') {
      
-      checkout scm
+     // checkout scm
       //deleteDir()
      
        
@@ -28,10 +28,10 @@ node {
         echo "No node_modules to unstash. Proceeding with installation."
       }
 
-    // dir('src/Maestro'){
+     dir('src/Maestro'){
     
-     // bat 'yarn'
- //   }
+      bat 'yarn'
+    }
       
     }
   }
