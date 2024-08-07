@@ -15,8 +15,8 @@ node {
 
   stage('Checkout and Install') {
      
-      checkout scm
-      //deleteDir()
+      //checkout scm
+      deleteDir()
      
        
       
