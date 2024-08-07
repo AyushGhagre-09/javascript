@@ -9,5 +9,8 @@ bat 'yarn'
 
 }
 }
+stage("echo"){
+echo "HII"
+}
 
 }
