@@ -1,16 +1,24 @@
-node{
-stage("checkout "){
-checkout scm
+node {
+  
+  
+  stage('Cleanup') {
+    cleanWs(deleteDirs: true, patterns: [
+      [pattern: 'src', type: 'EXCLUDE'],
+      [pattern: 'src/Maestro/', type: 'EXCLUDE'],
+      [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE']
+    ])
+    
+    
+   
+  }
 
-}
-stage("yarn "){
-dir("src/Maestro"){
-bat 'yarn'
-
-}
-}
-stage("echo"){
-echo "HII"
-}
-
+  stage('Checkout and Install') {
+    
+    checkout scm
+   
+   
+    dir('src/Maestro'){
+      bat 'yarn'
+    }
+  }
 }
