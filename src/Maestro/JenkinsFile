@@ -13,7 +13,7 @@ node {
   }
 
   stage('Checkout and Install') {
-    sleep 30
+   // sleep 30
     checkout scm
    
    
