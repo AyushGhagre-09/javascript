@@ -2,34 +2,35 @@ node {
   def stashExists = false
   
   stage('Cleanup') {
-    cleanWs(deleteDirs: true, patterns: [
-      [pattern: 'src', type: 'EXCLUDE'],
-      [pattern: 'src/Maestro/', type: 'EXCLUDE'],
-      [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE']
-    ])
-    
-    // Stash node_modules if it exists
-    if (fileExists('src/Maestro/node_modules')) {
-      stash includes: 'src/Maestro/node_modules/**', name: 'node_modules'
+    if (fileExists('src/Maestro/node_modules') || fileExists('src/Maestro/yarn.lock')) {
+      if (fileExists('src/Maestro/node_modules')) {
+        stash includes: 'src/Maestro/node_modules/**', name: 'node_modules'
+      }
+      if (fileExists('src/Maestro/yarn.lock')) {
+        stash includes: 'src/Maestro/yarn.lock', name: 'yarn_lock'
+      }
       stashExists = true
     }
   }
 
   stage('Checkout and Install') {
-// Checkout the code into 'src/Maestro'
+     
       checkout scm
-   
+      //deleteDir()
+     
+       
       
-      
-      // Only attempt to unstash if it was stashed
+      //Only attempt to unstash if it was stashed
       if (stashExists) {
         unstash 'node_modules'
+        unstash 'yarn_lock'
       } else {
         echo "No node_modules to unstash. Proceeding with installation."
       }
-      
-     dir('src/Maestro'){
-     bat 'yarn'
+
+         dir('src/Maestro'){
+    
+       bat 'yarn'
      }
       
     }
