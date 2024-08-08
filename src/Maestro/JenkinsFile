@@ -2,11 +2,11 @@ node {
   
   
   stage('Cleanup') {
-    cleanWs(deleteDirs: true, patterns: [
-      [pattern: 'src', type: 'EXCLUDE'],
-      [pattern: 'src/Maestro/', type: 'EXCLUDE'],
-      [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE']
-    ])
+    //cleanWs(deleteDirs: true, patterns: [
+      //[pattern: 'src', type: 'EXCLUDE'],
+      //[pattern: 'src/Maestro/', type: 'EXCLUDE'],
+    //  [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE']
+    //])
     
     
    
