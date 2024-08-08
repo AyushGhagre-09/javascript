@@ -20,5 +20,5 @@ node {
   //  dir('src/Maestro'){
   //   bat 'yarn'
   //}
- // }
+ }
 }
