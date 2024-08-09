@@ -16,7 +16,7 @@ node {
 
   stage('Checkout and Install') {
    // sleep 30
-  //checkout scm
+  checkout scm
    
    
 //     dir('src/Maestro'){
