@@ -5,7 +5,7 @@ node {
  cleanWs(deleteDirs: true, patterns: [
   [pattern: '**/.git/**', type: 'EXCLUDE'],  // Exclude all .git directories
    //[pattern: 'src/Maestro/**', type: 'EXCLUDE'] ,
-  [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE'],  // Exclude node_modules in src/Maestro
+  [pattern: '**/node_modules/**', type: 'EXCLUDE'],  // Exclude node_modules in src/Maestro
   //[pattern: 'src/Maestro/**', type: 'INCLUDE']  // Include everything else in src/Maestro for deletion
 ])
 
