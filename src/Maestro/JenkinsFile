@@ -1,7 +1,7 @@
 node{
     def helper=new org.settings.HelperFunctions()
     stage("checkout scm"){
-        checkout scm
+     //   checkout scm
     }
     stage("yarn ")
          dir('src/Maestro'){
