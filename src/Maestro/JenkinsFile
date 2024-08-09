@@ -3,11 +3,12 @@ node {
   
   stage('Cleanup') {
     cleanWs(deleteDirs: true, patterns: [
-      [pattern: '**/.git/**', type: 'EXCLUDE'],
-      [pattern: 'src', type: 'EXCLUDE'],
-      [pattern: 'src/Maestro/', type: 'EXCLUDE'],
-      [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE']
-    ])
+  [pattern: '**/.git/**', type: 'EXCLUDE'],
+  [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE'],
+  [pattern: 'src/Maestro/**', type: 'INCLUDE'],
+  [pattern: 'src/**', type: 'EXCLUDE']
+])
+
     
     
    
