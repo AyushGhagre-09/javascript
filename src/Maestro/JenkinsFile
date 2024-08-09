@@ -2,12 +2,12 @@ node {
   
   
   stage('Cleanup') {
-    cleanWs(deleteDirs: true, patterns: [
-    [pattern: '**/.git/**', type: 'EXCLUDE'],
-    [pattern: 'src/Maestro/node_modules/**', type: 'INCLUDE'],  // Include node_modules
-    [pattern: 'src/Maestro/**', type: 'EXCLUDE'],  // Exclude everything in src/Maestro
-    [pattern: 'src/Maestro/', type: 'EXCLUDE']  // Ensure src/Maestro itself is excluded
+   cleanWs(deleteDirs: true, patterns: [
+  [pattern: '**/.git/**', type: 'EXCLUDE'],  // Exclude all .git directories
+  [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE'],  // Exclude node_modules in src/Maestro
+  [pattern: 'src/Maestro/**', type: 'INCLUDE']  // Include everything in src/Maestro for deletion
 ])
+
 
 
     
