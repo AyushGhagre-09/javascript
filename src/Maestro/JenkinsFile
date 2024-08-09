@@ -4,8 +4,9 @@ node {
  stage('Cleanup') {
  cleanWs(deleteDirs: true, patterns: [
   [pattern: '**/.git/**', type: 'EXCLUDE'],  // Exclude all .git directories
+   //[pattern: 'src/Maestro/**', type: 'EXCLUDE'] ,
   [pattern: 'src/Maestro/node_modules/**', type: 'EXCLUDE'],  // Exclude node_modules in src/Maestro
-  [pattern: 'src/Maestro/**', type: 'INCLUDE']  // Include everything else in src/Maestro for deletion
+  //[pattern: 'src/Maestro/**', type: 'INCLUDE']  // Include everything else in src/Maestro for deletion
 ])
 
 
@@ -19,11 +20,11 @@ node {
 
   stage('Checkout and Install') {
    // sleep 30
-//checkout scm
+checkout scm
    
    
      dir('src/Maestro'){
-  //  bat 'yarn'
+   bat 'yarn'
   }
  }
 }
