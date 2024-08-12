@@ -1,15 +1,18 @@
 node{
     def helper=new org.settings.HelperFunctions()
     stage("checkout scm"){
-       checkout scm
+       //checkout scm
     }
-    stage("yarn ")
+    
+  stage("clear workspace")
+  {
+  helper.clearWorkspace('C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\env.BRANCH_NAME')
+  }
+  stage("yarn ")
+    {
          dir('src/Maestro'){
      bat 'yarn'
   }
-  stage("clear workspace")
-  {
-  //helper.clearWorkspace()
-  }
+}
 
 }
