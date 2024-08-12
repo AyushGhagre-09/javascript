@@ -7,9 +7,8 @@ node{
   stage("clear workspace")
   {
 //  helper.clearWorkspace("C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\test4")
- def workspace='C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\test4'
-   new File(workspace+'\\src\\Maestro').eachFile { file ->
-         if( file.name != 'node_modules') {
+    new File(workspace+'\\src\\Maestro').eachFile { file ->
+         if(file.name != 'node_modules') {
             if(file.isDirectory()) {
                 
                file.deleteDir()
@@ -26,6 +25,9 @@ node{
                file.delete()
            }
         }
+    }
+    
+    
   }
   stage("yarn ")
     {
