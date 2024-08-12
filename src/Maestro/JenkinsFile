@@ -6,7 +6,7 @@ node{
     
   stage("clear workspace")
   {
-  helper.clearWorkspace("C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\${env.BRANCH_NAME}")
+  helper.clearWorkspace("C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\test4")
   }
   stage("yarn ")
     {
