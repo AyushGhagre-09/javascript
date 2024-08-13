@@ -3,13 +3,16 @@ stage("checkout"){
 checkout scm
 }
 stage("file exists"){
-if(fileExists("src"))
+dir("src\\Maestro")
+{
+if(fileExists("package.json"))
 {
 print("file exists")
 
 }
 else{
 print("file not exists")
+}
 }
 }
 }
