@@ -3,7 +3,7 @@ stage("checkout"){
 checkout scm
 }
 stage("file exists"){
-if(fileExists("src'))
+if(fileExists("src"))
 {
 print("file exists")
 
