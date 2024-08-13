@@ -16,7 +16,7 @@ node{
   stage("yarn ")
     {
          dir('src/Maestro'){
-   bat 'yarn'
+   //bat 'yarn'
   }
 }
 
