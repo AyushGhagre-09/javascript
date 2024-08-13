@@ -2,7 +2,7 @@ node{
 stage("checkout"){
 checkout scm
 }
-stage("file exists){
+stage("file exists"){
 if(fileExists("src'))
 {
 print("file exists")
