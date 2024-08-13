@@ -1,32 +1,12 @@
 node{
     def helper=new org.settings.HelperFunctions()
     stage("checkout scm"){
-    //   checkout scm
+       checkout scm
     }
     
   stage("clear workspace")
   {
-//  helper.clearWorkspace("C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\test4")
-def workspace='C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\test4'
-new File(workspace+'\\src\\Maestro').eachFile { file ->
-         if(file.name != 'node_modules') {
-            if(file.isDirectory()) {
-                
-               file.deleteDir()
-            }else {
-            file.delete()
-            }
-        }
-    }
-    new File(workspace).eachFile { file ->
-        if(file.name != 'src') {
-            if(file.isDirectory()) {
-                file.deleteDir()
-            } else {
-               file.delete()
-           }
-        }
-    }
+   
     
     
    
@@ -36,7 +16,7 @@ new File(workspace+'\\src\\Maestro').eachFile { file ->
   stage("yarn ")
     {
          dir('src/Maestro'){
-   // bat 'yarn'
+   bat 'yarn'
   }
 }
 
